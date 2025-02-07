@@ -17,7 +17,7 @@
 // innerHTML = 해당 태그 안에 새로운 자식요소를 넣을 때 사용함
 // 자식요소는 태그들 문자열에 담아서 사용해도 되지만. 변수를 같이 사용하려면 ``사용해서 하면 개꿀.
 
-let list = ["우유", "계란", "유부초밥", "한우++"]
+let list = JSON.parse(localStorage.getItem("list") ?? []) ?? []
 
 const rendering = () => {
   const ul = document.querySelector("ul")
@@ -83,6 +83,7 @@ form.addEventListener(
     // list.push()
     list.unshift(item)
 
+    localStorage.setItem("list", JSON.stringify(list))
     rendering()
 
     input.value = ""
