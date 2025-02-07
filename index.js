@@ -17,7 +17,14 @@
 // innerHTML = 해당 태그 안에 새로운 자식요소를 넣을 때 사용함
 // 자식요소는 태그들 문자열에 담아서 사용해도 되지만. 변수를 같이 사용하려면 ``사용해서 하면 개꿀.
 
-let list = JSON.parse(localStorage.getItem("list") ?? []) ?? []
+const fetchList = () => {
+  const data = localStorage.getItem("list")
+  if (!data) {
+    return []
+  }
+  return JSON.parse(data ?? []) ?? []
+}
+let list = fetchList() ?? []
 
 const rendering = () => {
   const ul = document.querySelector("ul")
