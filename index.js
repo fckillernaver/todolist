@@ -68,6 +68,8 @@ const rendering = () => {
     //   number += i
     //   li += tag
   }
+
+  localStorage.setItem("list", JSON.stringify(list))
 }
 
 rendering()
@@ -90,7 +92,6 @@ form.addEventListener(
     // list.push()
     list.unshift(item)
 
-    localStorage.setItem("list", JSON.stringify(list))
     rendering()
 
     input.value = ""
