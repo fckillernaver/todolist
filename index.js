@@ -17,14 +17,7 @@
 // innerHTML = 해당 태그 안에 새로운 자식요소를 넣을 때 사용함
 // 자식요소는 태그들 문자열에 담아서 사용해도 되지만. 변수를 같이 사용하려면 ``사용해서 하면 개꿀.
 
-const fetchList = () => {
-  const data = localStorage.getItem("list")
-  if (!data) {
-    return []
-  }
-  return JSON.parse(data ?? []) ?? []
-}
-let list = fetchList() ?? []
+let list = []
 
 const rendering = () => {
   const ul = document.querySelector("ul")
@@ -68,8 +61,6 @@ const rendering = () => {
     //   number += i
     //   li += tag
   }
-
-  localStorage.setItem("list", JSON.stringify(list))
 }
 
 rendering()
